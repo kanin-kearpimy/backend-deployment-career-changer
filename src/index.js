@@ -2,10 +2,13 @@ import express from "express";
 import multer from "multer";
 import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
 
-const dbUser = process.env.DB_USERNAME || "test-genth-deployment";
-const dbPass = process.env.DB_PASSWORD || "XqwUoGZ7l8R74Azl";
-const dbName = process.env.DB_NAME || "genth";
+dotenv.config();
+
+const dbUser = process.env.DB_USERNAME;
+const dbPass = process.env.DB_PASSWORD;
+const dbName = process.env.DB_NAME;
 
 mongoose.connect(
   `mongodb+srv://${dbUser}:${dbPass}@test-genth-deployment-2.6kpqqmu.mongodb.net/${dbName}`
