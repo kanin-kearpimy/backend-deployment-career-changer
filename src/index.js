@@ -1,6 +1,7 @@
 import express from "express";
 import multer from "multer";
 import mongoose from "mongoose";
+import cors from "cors";
 
 const dbUser = process.env.DB_USERNAME || "test-genth-deployment";
 const dbPass = process.env.DB_PASSWORD || "XqwUoGZ7l8R74Azl";
@@ -18,6 +19,7 @@ db.once("open", function () {
 
 const upload = multer({ dest: "uploads/" });
 const webServer = express();
+webServer.use(cors());
 
 webServer.get("/", (request, response) => {
   response.send("This is main route!");
@@ -39,5 +41,5 @@ webServer.get("/users", async (request, response) => {
 });
 
 webServer.listen(process.env.PORT || 3000, () => {
-  console.log(`SERVER: http://127.0.0.1/${process.env.PORT || 3000}`);
+  console.log(`SERVER: http://127.0.0.1:${process.env.PORT || 3000}`);
 });
