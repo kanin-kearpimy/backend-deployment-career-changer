@@ -44,5 +44,5 @@ webServer.get("/users", async (request, response) => {
 });
 
 webServer.listen(process.env.PORT || 3000, () => {
-  console.log(`SERVER: http://127.0.0.1:${process.env.PORT || 3000}`);
+  console.log("SERVER IS RUNNING!");
 });
